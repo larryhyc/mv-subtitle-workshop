@@ -1,7 +1,7 @@
 'use client';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
-import { MoonIcon, SunIcon } from 'lucide-react';
+import { MoonIcon, SunIcon, VideoIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Header = () => {
@@ -15,26 +15,45 @@ const Header = () => {
 
   if (!mounted) {
     return (
-      <div className="flex justify-between items-center p-4 font-bold">
-        <h1>MV SUBTITLE WORKSHOP</h1>
-        <Button variant="ghost" size="icon" disabled>
-          <MoonIcon />
-        </Button>
-      </div>
+      <header className="shadow-sm border-b">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <VideoIcon className="w-8 h-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-gray-900">MV字幕工坊</h1>
+            </div>
+            <Button variant="ghost" size="icon" disabled>
+              <MoonIcon />
+            </Button>
+          </div>
+        </div>
+      </header>
     );
   }
 
   return (
-    <div className="flex justify-between items-center p-4 font-bold">
-      <h1>MV SUBTITLE WORKSHOP</h1>
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      >
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-      </Button>
-    </div>
+    <header className="shadow-sm border-b">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <VideoIcon className="w-8 h-8 text-blue-600" />
+            <h1 className="text-2xl font-bold">MV字幕工坊</h1>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="text-gray-600"
+          >
+            {theme === 'dark' ? (
+              <SunIcon className="w-5 h-5" />
+            ) : (
+              <MoonIcon className="w-5 h-5" />
+            )}
+          </Button>
+        </div>
+      </div>
+    </header>
   );
 };
 
