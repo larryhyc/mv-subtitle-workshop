@@ -86,11 +86,11 @@ export const VideoEditor = () => {
       setProgress(100);
 
       // 成功提示
-      alert('视频处理成功！字幕已添加到视频中，可以下载了。');
-      // toast.success('视频处理成功！字幕已添加到视频中，可以下载了。');
+      // alert('视频处理成功！字幕已添加到视频中，可以下载了。');
+      toast.success('视频处理成功！字幕已添加到视频中，可以下载了。');
     } catch (error) {
       console.error('处理错误:', error);
-
+      toast.error('视频处理失败，请重试');
       let errorMessage = '视频处理失败，请重试';
 
       if (error instanceof Error) {
@@ -179,6 +179,7 @@ export const VideoEditor = () => {
                 onClick={handleDownload}
                 className="w-full cursor-pointer"
                 size="lg"
+                variant="ghost"
               >
                 <DownloadIcon className="w-4 h-4 mr-2" />
                 下载带字幕的视频
@@ -231,12 +232,13 @@ export const VideoEditor = () => {
 
           {/* 处理按钮 */}
           <Button
+            variant="default"
             onClick={handleProcess}
             disabled={!canProcess}
             size="lg"
             className={`w-full transition-all duration-200 ${
               canProcess
-                ? 'hover:scale-101 shadow-lg hover:shadow-xl cursor-pointer'
+                ? 'hover:scale-101 shadow-lg hover:shadow-xl cursor-pointer text-white'
                 : 'bg-gray-400 cursor-not-allowed'
             }`}
           >

@@ -3,6 +3,8 @@
 import { FileUpload } from '@/components/FileUpload';
 import { VideoEditor } from '@/components/VideoEditor';
 import { UsageGuide } from '@/components/UsageGuide';
+import { LrcSearch } from '@/components/LrcSearch';
+import { Toaster } from '@/components/ui/sonner';
 
 const Page = () => {
   return (
@@ -23,10 +25,14 @@ const Page = () => {
           {/* 文件上传区域 */}
           <FileUpload />
 
+          {/* LRC文件搜索区域 */}
+          <LrcSearch />
+
           {/* 视频编辑区域 */}
           <VideoEditor />
         </div>
       </main>
+      <Toaster richColors position="top-center" />
     </div>
   );
 };

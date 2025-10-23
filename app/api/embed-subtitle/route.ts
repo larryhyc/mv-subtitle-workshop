@@ -7,7 +7,7 @@ import fs from 'fs';
 // --- CONFIGURATION START ---
 // Serverless 环境中唯一保证可写入的目录
 const TEMP_DIR = '/tmp';
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 最大 50MB
+const MAX_FILE_SIZE = 100 * 1024 * 1024; // 最大 100MB
 // --- CONFIGURATION END ---
 
 export const dynamic = 'force-dynamic'; // 确保动态路由
@@ -87,8 +87,8 @@ YCbCr Matrix: None
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Active, Arial, 40, &H00FFFF00, &H000000FF, &H00000000, &H00000000, 0, 0, 0, 0, 100, 100, 0, 0, 1, 2, 2, 2, 10, 10, 150, 1
-Style: NextLine, Arial, 32, &H00AAAAAA, &H000000FF, &H00000000, &H00000000, 0, 0, 0, 0, 100, 100, 0, 0, 1, 2, 2, 2, 10, 10, 50, 1
+Style: Active, Arial, 48, &H00FFFF00, &H000000FF, &H00000000, &H00000000, 1, 0, 0, 0, 100, 100, 0, 0, 1, 2, 2, 2, 10, 10, 40, 1
+Style: NextLine, Arial, 40, &H00AAAAAA, &H000000FF, &H00000000, &H00000000, 1, 0, 0, 0, 100, 100, 0, 0, 1, 2, 2, 2, 10, 10, 20, 1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -106,7 +106,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     const activeEndMs = nextLine ? nextLine.startTime : startMs + 3000;
     const activeStartTime = formatTimeAss(startMs);
     const activeEndTime = formatTimeAss(activeEndMs); // Layer 0: 当前正在唱的歌词，高亮显示
-    assContent += `Dialogue: 0,${activeStartTime},${activeEndTime},Active,,0,0,0,,${cleanText}\n`; // 2. 下句预备行 (Next Line) - 居上
+    assContent += `Dialogue: 1,${activeStartTime},${activeEndTime},Active,,0,0,0,,${cleanText}\n`; // 2. 下句预备行 (Next Line) - 居上
     if (nextLine) {
       const nextLineText = nextLine.text.replace(/[<>]/g, '').trim(); // 下一句预备在当前行开始时显示
       const nextLineStartTime = activeStartTime; // 下一句预备在它自己开始唱之前结束

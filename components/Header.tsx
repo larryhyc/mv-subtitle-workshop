@@ -13,23 +13,7 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <header className="shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <VideoIcon className="w-8 h-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-gray-900">MV字幕工坊</h1>
-            </div>
-            <Button variant="ghost" size="icon" disabled>
-              <MoonIcon />
-            </Button>
-          </div>
-        </div>
-      </header>
-    );
-  }
+  if (!mounted) return null;
 
   return (
     <header className="shadow-sm border-b">

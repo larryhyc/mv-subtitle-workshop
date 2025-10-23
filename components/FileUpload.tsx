@@ -99,7 +99,7 @@ export const FileUpload = () => {
             </h3>
             <div
               {...videoDropzone.getRootProps()}
-              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
+              className={`h-48 border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
                 videoDropzone.isDragActive
                   ? 'border-blue-500 bg-blue-50'
                   : videoUrl
@@ -144,7 +144,7 @@ export const FileUpload = () => {
             </h3>
             <div
               {...lrcDropzone.getRootProps()}
-              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
+              className={`h-48 border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
                 lrcDropzone.isDragActive
                   ? 'border-blue-500 bg-blue-50'
                   : subtitleUrl
