@@ -19,7 +19,7 @@ const safeUnlink = async (path: string | null) => {
   try {
     await unlink(path);
   } catch (e) {
-    console.warn(`Failed to clean up file: ${path}`);
+    console.warn(`清理文件失败: ${path}`, e);
   }
 };
 
