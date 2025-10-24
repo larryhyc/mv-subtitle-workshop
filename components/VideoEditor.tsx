@@ -15,7 +15,6 @@ export const VideoEditor = () => {
   const {
     videoUrl,
     videoFile,
-    subtitleUrl,
     subtitleFile,
     progress,
     isProcessing,
@@ -74,7 +73,8 @@ export const VideoEditor = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || '视频处理失败，请检查文件格式');
+        toast.error(errorData.error || '视频处理失败，请检查文件格式');
+        // throw new Error(errorData.error || '视频处理失败，请检查文件格式');
       }
 
       setProgress(90);
